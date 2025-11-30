@@ -29,6 +29,17 @@ android {
     buildFeatures {
         viewBinding = true
     }
+    
+    // Prevent compression of TensorFlow Lite model files
+    packaging {
+        resources {
+            excludes += "/META-INF/{AL2.0,LGPL2.1}"
+        }
+    }
+    
+    androidResources {
+        noCompress += "tflite"
+    }
 }
 
 dependencies {
@@ -38,6 +49,13 @@ dependencies {
     implementation(libs.constraintlayout)
     implementation(libs.navigation.fragment)
     implementation(libs.navigation.ui)
+    
+    // FingerPaintView library for drawing digits
+    implementation("com.nex3z:finger-paint-view:0.3.1")
+    
+    // TensorFlow Lite for machine learning inference
+    implementation("org.tensorflow:tensorflow-lite:2.14.0")
+    
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
