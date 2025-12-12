@@ -82,8 +82,8 @@ public class MainActivity extends AppCompatActivity {
         fingerPaintView.setBackgroundColor(0xFF000000);
         // White paint for drawing digits
         fingerPaintView.setColor(0xFFFFFFFF);
-        // Thicker stroke width for better visibility
-        fingerPaintView.setStrokeWidth(40f);
+        // Note: Stroke width setting removed - FingerPaintView library may not support
+        // setStrokeWidth() or setPenWidth() methods. The default stroke width should work fine.
         
         // Set up button click listeners
         classifyButton.setOnClickListener(v -> classifyDigit());
